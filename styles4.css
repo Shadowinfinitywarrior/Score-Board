@@ -1,0 +1,258 @@
+body {
+    background-color: #000000;
+    color: #ffff00;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f44747;
+}
+
+.teams-table th,
+.teams-table td {
+    padding: 2px;
+    text-align: center;
+    border: 1px solid #ffff00;
+    font-size: 10px;
+    height: auto;
+}
+
+.teams-table th {
+    background-color: #ffff00;
+    color: #ff0000;
+}
+
+.teams-table .logo-cell {
+    width: 30px;
+}
+
+.teams-table .alive-cell {
+    width: 100px;
+}
+
+.teams-table .color-picker-cell {
+    width: 40px;
+}
+
+.teams-table .action-cell {
+    width: 40px;
+}
+
+.teams-table input[type="color"] {
+    width: 25px;
+    height: 20px;
+    padding: 0;
+    border: none;
+}
+
+.teams-table .checkbox-container {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+    vertical-align: middle;
+    box-shadow: #ffffff;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.teams-table .checkbox-container.checked {
+    background-color: greenyellow;
+}
+
+.teams-table .checkbox-container:not(.checked) {
+    background-color: red;
+}
+
+.teams-table input[type="checkbox"] {
+    transform: scale(1);
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+}
+
+.teams-table button {
+    width: 60px;
+    height: 20x;
+    font-size: 9px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+}
+
+.teams-table button:hover {
+    background-color: #e0e0e0;
+}
+
+.teams-table tbody tr {
+    transition: transform 0.5s ease-in-out;
+}
+
+.logo-cell img {
+    cursor: pointer;
+}
+
+.logo-cell input[type="file"] {
+    display: none;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.submit-btn {
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #e0e0e0;
+}
+
+body,
+.teams-table th,
+.teams-table td,
+.teams-table button,
+.submit-btn {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#switchStyleButton {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #444;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+#switchStyleButton::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+#switchStyleButton:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+#switchStyleButton:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+#switchStyleButton:active {
+    transform: scale(0.95);
+    background-color: #666;
+}
+
+.wipe-transition {
+    animation: wipe 1s forwards;
+}
+
+@keyframes wipe {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.live-score {
+    display: inline-block;
+    margin-left: 20px;
+    /* Adjust spacing */
+    font-size: 24px;
+    /* Adjust size as needed */
+    animation: bounce 1s infinite alternate;
+    color: #fff;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+        /* Adjust bounce height */
+    }
+}
+
+@media (max-width: 600px) {
+    .teams-table {
+        font-size: 10px;
+    }
+    .teams-table th,
+    .teams-table td {
+        padding: 2px;
+    }
+    #switchStyleButton {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    .teams-table .alive-cell {
+        width: 120px;
+        /* Adjust width for smaller screens */
+    }
+}
+
+
+/* Specific transition for table rows */
+
+.teams-table tbody tr {
+    transition: transform 1s ease-in-out;
+}
+
+.reordering {
+    transform: translateY(10px);
+    opacity: 1;
+}
+
+.checkbox-container {
+    display: inline-block;
+    width: 12px;
+    /* Reduced the width */
+    height: 12px;
+    /* Reduced the height */
+    margin-right: 2px;
+    /* Adjusted the spacing between checkboxes */
+    vertical-align: middle;
+    box-shadow: #ffffff;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
